@@ -1,18 +1,23 @@
 import React from 'react';
 import './App.css';
-import ProjectList from './ProjectList/ProjectList'
-import Typography from "@material-ui/core/Typography";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from './views/Home';
+import SignIn from "./views/Registration/SignIn";
+import SignOut from "./views/Registration/SignOut";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">        
-        <Typography variant="h1">Todo Projects</Typography>
-        <hr/>        
-        <ProjectList/>
-      </header>
-    </div>
-  );
-}
+
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/sign_in" component={SignIn} /> 
+      <Route exact path="/sign_out" component={SignOut} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;
+
+
+
+
