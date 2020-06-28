@@ -46,7 +46,7 @@ class ProjectList extends Component {
 								{this.state.items.map((item) => (						
 								  <div key={item.id}>
 										<ProjectItem item={item}/>											
-										<TaskList/>
+										<TaskList project_id={item.id}/>
 									</div>							
 								))}						
 							</div>
