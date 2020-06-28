@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import ProjectForm from "./ProjectForm"
 import ProjectItem from "./ProjectItem"
+import TaskList from "../TaskList/TaskList"
 
 const api_url = `http://localhost:3001/api/v1/projects`
 
@@ -41,11 +42,14 @@ class ProjectList extends Component {
 			return (
 					<div>						
 							<ProjectForm api_url={api_url} updateProjectList={this.updateProjectList}/> 
-							<ul id="project_list">
-								{this.state.items.map((item) => (								
-									<ProjectItem key={item.id} item={item}/>								
+							<div id="project_list">
+								{this.state.items.map((item) => (						
+								  <div key={item.id}>
+										<ProjectItem item={item}/>											
+										<TaskList/>
+									</div>							
 								))}						
-							</ul>
+							</div>
 					</div>
 			)
 	}
