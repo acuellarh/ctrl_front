@@ -19,6 +19,7 @@ class ProjectForm extends Component {
         this.formSubmit(event.target);
     }
 
+
     async formSubmit(formData) {
         var data = new FormData(formData);
         await fetch(this.state.api_url, {

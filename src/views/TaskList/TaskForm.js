@@ -26,7 +26,7 @@ class TaskForm extends Component {
             mode: "cors",
             body: data
         }).then(response => response.json())
-            .then(response => this.props.updateProjectList(response))
+            .then(response => this.props.updateTasktList(response))
     }
 
     handleTaskChange (event) {
@@ -43,26 +43,40 @@ class TaskForm extends Component {
                 id= "project_form"
                 autoComplete="off">
 
-                <TextField
-                id="project_input"
-                label="Type the Project Title"
-                variant="outlined"
+                <input
+                id="task_input"
+                placeholder="Type the Task"            
                 type="text"
-                name="task[description]"
+                name="task[description]"                
                 onChange={this.handleTaskChange}/>
 
-                <TextField
-                id="user_id_input"
-                label="Type the user_id, just for test"
-                variant="outlined"
+                <input
+                id="priority_id_input"
+                placeholder="Type the priority_id"                
                 type="number"
                 name="task[priority_id]"
                 onChange={this.handleTaskChange}
                 />
 
-                <Button variant="contained"
+                <input
+                id="date_input"
+                placeholder="Type the deadline date"                
+                type="date"
+                name="task[deadline]"
+                onChange={this.handleTaskChange}
+                />
+
+                <input
+                id="project_id_input"
+                placeholder="Type the project_id"                
+                type="number"
+                name="task[project_id]"
+                onChange={this.handleTaskChange}
+                />
+
+                <button variant="contained"
                 color="primary"
-                type="submit">Add Task</Button>
+                type="submit">Add Task</button>
 
 
                 </form>
