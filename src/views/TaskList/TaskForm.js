@@ -26,7 +26,7 @@ class TaskForm extends Component {
             mode: "cors",
             body: data
         }).then(response => response.json())
-            .then(response => this.props.updateTasktList(response))
+            .then(response => this.props.updateTaskList(response))
     }
 
     handleTaskChange (event) {

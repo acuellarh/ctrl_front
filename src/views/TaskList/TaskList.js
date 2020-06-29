@@ -44,7 +44,7 @@ class TaskList extends Component {
 			<div>
 			<TaskForm api_task_url={api_task_url} updateTaskList={this.updateTaskList}/> 
 				{this.state.tasks.filter(task => task.project_id === this.state.project_id).map(filteredTask => (
-					<li>
+					<li key={filteredTask.id}>
 							{filteredTask.description}
 						</li>
 					))}
