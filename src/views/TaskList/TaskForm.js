@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 
 
 class TaskForm extends Component {
@@ -8,10 +6,14 @@ class TaskForm extends Component {
         super(props)
         this.state = {
             api_task_url: props.api_task_url,
-            description: "",           
+            description: "", 
+            priority_id: "",
+            deadline: "",          
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleTaskChange = this.handleTaskChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+        this.handlePriorityChange = this.handlePriorityChange.bind(this);
+        this.handleDateLineChange = this.handleDateLineChange.bind(this);
     }
 
     handleSubmit(event) {
@@ -27,11 +29,29 @@ class TaskForm extends Component {
             body: data
         }).then(response => response.json())
             .then(response => this.props.updateTaskList(response))
+        this.setState({
+            description: "", 
+            priority: "",
+            deadline: ""
+        })    
+
     }
 
-    handleTaskChange (event) {
+    handleDescriptionChange (event) {
         this.setState({
             description: event.target.value            
+        })
+    }
+
+    handlePriorityChange (event) {
+        this.setState({
+            priority_id: event.target.value            
+        })
+    }
+
+    handleDateLineChange (event) {
+        this.setState({
+            dateline: event.target.value            
         })
     }
 
@@ -48,14 +68,14 @@ class TaskForm extends Component {
                 placeholder="Type the Task"            
                 type="text"
                 name="task[description]"                
-                onChange={this.handleTaskChange}/>
+                onChange={this.handleDescriptionChange}/>
 
                 <input
                 id="priority_id_input"
                 placeholder="Type the priority_id"                
                 type="number"
                 name="task[priority_id]"
-                onChange={this.handleTaskChange}
+                onChange={this.handlePriorityChange}
                 />
 
                 <input
@@ -63,7 +83,7 @@ class TaskForm extends Component {
                 placeholder="Type the deadline date"                
                 type="date"
                 name="task[deadline]"
-                onChange={this.handleTaskChange}
+                onChange={this.handleDateLineChange}
                 />
 
                 <input

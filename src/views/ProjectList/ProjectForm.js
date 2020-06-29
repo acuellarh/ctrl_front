@@ -8,10 +8,12 @@ class ProjectForm extends Component {
         super(props)
         this.state = {
             api_url: props.api_url,
-            title: "",           
+            title: "", 
+            user_id: ""  //provitional use, while the authentication is configured       
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleProjectChange = this.handleProjectChange.bind(this);
+        this.handleProjectChange = this.handleProjectChange.bind(this);        
+        this.handleUserIdChange = this.handleUserIdChange.bind(this); // provitional use, while the authentication is configured  
     }
 
     handleSubmit(event) {
@@ -28,11 +30,21 @@ class ProjectForm extends Component {
             body: data
         }).then(response => response.json())
             .then(response => this.props.updateProjectList(response))
+        this.setState({
+            title: "",
+            user_id: ""
+        })    
     }
 
     handleProjectChange (event) {
         this.setState({
             title: event.target.value            
+        })
+    }
+
+    handleUserIdChange (event) {
+        this.setState({
+            user_id: event.target.value            
         })
     }
 
@@ -50,15 +62,18 @@ class ProjectForm extends Component {
                 variant="outlined"
                 type="text"
                 name="project[title]"
+                value={this.state.title}
                 onChange={this.handleProjectChange}/>
 
+                {/* provitional use, while the authentication is configured  */}
                 <TextField
                 id="user_id_input"
-                label="Type the user_id, just for test"
+                label="Ingrese el número 1, corresponde al usuario 1"
                 variant="outlined"
                 type="number"
                 name="project[user_id]"
-                onChange={this.handleProjectChange}
+                value={this.state.user_id}
+                onChange={this.handleUserIdChange}
                 />
 
                 <Button variant="contained"
