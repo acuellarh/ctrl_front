@@ -3,7 +3,8 @@ import ProjectForm from "./ProjectForm"
 import ProjectItem from "./ProjectItem"
 import TaskList from "../TaskList/TaskList"
 
-const api_url = `http://localhost:3001/api/v1/projects`
+// const api_url = `http://localhost:3001/api/v1/projects`
+const api_url = `https://dt-control.herokuapp.com/api/v1/projects`
 
 class ProjectList extends Component {
 	constructor(props) {

@@ -3,7 +3,8 @@ import TaskForm from "./TaskForm"
 // import TaskTable from "./TaskTable"
 
 
-const api_task_url = `http://localhost:3001/api/v1/tasks`
+// const api_task_url = `http://localhost:3001/api/v1/tasks`
+const api_task_url = `https://dt-control.herokuapp.com/api/v1/tasks`
 
 class TaskList extends Component {
 	constructor(props) {
